@@ -40,10 +40,11 @@ class Student
     sql = <<-SQL
       SELECT * FROM students
       WHERE grade < ?
-      name = ?
     SQL
     
     DB[:conn].execute(sql, 12).map do |row|
+      self.new_from_db(row)
+      
   end 
   
   def self.first_X_students_in_grade_10(x)
