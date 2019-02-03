@@ -42,7 +42,7 @@ class Student
       WHERE grade < ?
     SQL
     
-    DB[:conn].execute(sql, 12)
+    DB[:conn].execute(sql, 12).first.name
   end 
   
   def self.first_X_students_in_grade_10(x)
